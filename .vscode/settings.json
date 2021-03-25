@@ -12,6 +12,9 @@
         "regex": "cpp",
         "utility": "cpp",
         "valarray": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "deque": "cpp",
+        "string": "cpp",
+        "charconv": "cpp"
     }
 }
