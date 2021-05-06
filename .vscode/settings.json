@@ -15,6 +15,9 @@
         "vector": "cpp",
         "deque": "cpp",
         "string": "cpp",
-        "charconv": "cpp"
+        "charconv": "cpp",
+        "set": "cpp",
+        "chrono": "cpp",
+        "complex": "cpp"
     }
 }

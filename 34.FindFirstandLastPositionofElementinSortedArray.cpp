@@ -3,27 +3,20 @@
 #include <vector>
 class Solution {
 public:
-    int binarySearchRecursive(vector<int>& arr, int l, int r, int x){
-        if (r >= l) { 
-            int mid = l + (r - l) / 2; 
-            if (arr[mid] == x){
-                arr[mid]=-1;
-                return mid; 
-            }
-            if (arr[mid] > x) 
-                return binarySearchRecursive(arr, l, mid - 1, x); 
-            return binarySearchRecursive(arr, mid + 1, r, x); 
-        }
-        return -1; 
-    }
     vector<int> searchRange(vector<int>& nums, int target) {
         vector<int> result;
-        while(binarySearchRecursive(nums,0,nums.size()-1,target)!=-1){
-            sort(nums.begin(),nums.end());
-            int a=binarySearchRecursive(nums,0,nums.size()-1,target);
-            result.push_back(a);
+        if(binary_search(nums.begin(),nums.begin()+nums.size(),target)){
+            auto it1=lower_bound(nums.begin(),nums.begin()+nums.size(),target);
+            auto it2=upper_bound(nums.begin(),nums.begin()+nums.size(),target);
+            result.push_back(it1-nums.begin());
+            result.push_back(it2-nums.begin()-1);
+            return result;
         }
-        return result;
+        else{
+            // result.push_back(-1);
+            // result.push_back(-1);
+            return {-1,-1};
+        }
     }
 };
 int main(){

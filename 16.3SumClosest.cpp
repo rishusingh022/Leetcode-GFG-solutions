@@ -1,3 +1,81 @@
+#include<iostream>
+#include<algorithm>
+#include<vector>
+using namespace std;
+class Solution {
+public:
+    int threeSumClosest(vector<int>& nums, int target) {
+        sort(nums.begin(),nums.end());
+        int i, j, k;
+        int n = nums.size();
+        int close=10000;
+        int result=0;
+        for (i = 0; i < n - 2; i++) {
+            j = i+1;
+            k = n-1;
+            while (j < k) {
+                int sum = nums[i] + nums[j] + nums[k];
+                if(abs(target-sum)<close){
+                    close=abs(target-sum);
+                    result=sum;
+                }
+                if (sum == target) {
+                    return sum;
+                    j++;
+                    k--;
+                } else if (sum > target) {
+                    k--;
+                } else if (sum < target) {
+                    j++;
+                }
+            }
+        }
+        return result;
+    }
+};
+int main(){
+    Solution obj;
+    vector<int> hello={-1,2,1,-4};
+    int target=1;
+    cout<<obj.threeSumClosest(hello,target);
+}
+// class Solution {
+// public:
+//     int threeSumClosest(vector<int>& nums, int target) {
+//         sort(nums.begin(),nums.end());
+//         vector<int> result;
+//         int i, j, k;
+//         int n = nums.size();
+//         for (i = 0; i < n - 2; i++) {
+//             j = i+1;
+//             k = n-1;
+//             while (j < k) {
+//                 int sum = nums[i] + nums[j] + nums[k];
+//                 result.push_back(sum);
+//                 if (sum == target) {
+//                     j++;
+//                     k--;
+//                 } else if (sum > target) {
+//                     k--;
+//                 } else if (sum < target) {
+//                     j++;
+//                 }
+
+//             }
+//         }
+//         auto it1=upper_bound(result.begin(),result.begin()+result.size(),target);
+//         auto it2=lower_bound(result.begin(),result.begin()+result.size(),target);
+//         if(*it1-target>*it2-target){
+//             return *it2;
+//         }
+//         else{
+//             return *it1;
+//         }
+        
+//     }
+// };
+
+/*
 #include <bits/stdc++.h> 
 using namespace std; 
 class Solution {

@@ -1,2 +1,7 @@
 # leetcode_solution
-solution to leetcode question 
+Practice 
+
+Todo
+33. SearchinRotatedSortedArray
+34. FindFirstandLastPositionofElementinSortedArray
+907.SumofSubarrayMinimums
