@@ -18,6 +18,7 @@
         "charconv": "cpp",
         "set": "cpp",
         "chrono": "cpp",
-        "complex": "cpp"
+        "complex": "cpp",
+        "sstream": "cpp"
     }
 }
