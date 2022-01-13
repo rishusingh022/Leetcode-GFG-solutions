@@ -1,24 +1,18 @@
 class Solution {
 public:
     int maxProduct(vector<int>& arr) {
-        int ans=arr[0];
-        int prod=1;
         int n=arr.size();
-        for(int i=0;i<n;i++){
-            prod*=arr[i];
-            ans=max(ans,prod);
-            if(arr[i]==0){
-                prod=1;
+        int mx=arr[0];
+        int mi=arr[0];
+        int mxall=arr[0];
+        for(int i=1;i<n;i++){
+            if(arr[i]<0){
+                swap(mx,mi);
             }
+            mx=max(arr[i],mx*arr[i]);
+            mi=min(arr[i],mi*arr[i]);
+            mxall=max(mx,mxall);
         }
-        prod=1;
-        for(int i=n-1;i>=0;i--){
-            prod*=arr[i];
-            ans=max(ans,prod);
-            if(arr[i]==0){
-                prod=1;
-            }
-        }
-        return ans;
+        return mxall;
     }
 };
