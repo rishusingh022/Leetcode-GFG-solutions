@@ -13,25 +13,27 @@ void swap(int *xp, int *yp)
 class Solution
 {
     public:
-    int select(int arr[], int i)
+    int select(int arr[], int i,int n)
     {
         // code here such that selectionSort() sorts arr[]
-        
+        int mi=INT_MAX;
+        int ind=i;
+        for(int j=i;j<n;j++){
+           if(mi>arr[j]){
+               mi=arr[j];
+               ind=j;
+           }
+        }
+        return ind;
     }
      
     void selectionSort(int arr[], int n)
     {
        //code here
        for(int i=0;i<n-1;i++){
-           int mi=arr[i];
-           int ind=i;
-           for(int j=i+1;j<n;j++){
-               if(mi>arr[j]){
-                   mi=arr[j];
-                   ind=j;
-               }
-           }
-           swap(arr[i],arr[ind]);
+           int ind=select(arr,i,n);
+           //cout<<ind<<" ";
+           swap(&arr[i],&arr[ind]);
        }
     }
 };
