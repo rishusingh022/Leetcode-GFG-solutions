@@ -5,21 +5,12 @@ using namespace std;
 
  // } Driver Code Ends
 
-bool compare(int a,int b) {
-    int cnta = 0;
-    int cntb = 0;
-    while(a>0) {
-        ++cnta;
-        a = a&(a-1);
-    }
-    while(b>0) {
-        ++cntb;
-        b = b&(b-1);
-    }
-    if(cnta != cntb) {
-        return cnta > cntb;
-    }
-    return a<b;
+
+bool compare(int a,int b){
+    
+    int cnt1=__builtin_popcount(a);
+    int cnt2=__builtin_popcount(b);
+    return cnt1>cnt2;
 }
 class Solution{
     public: 
