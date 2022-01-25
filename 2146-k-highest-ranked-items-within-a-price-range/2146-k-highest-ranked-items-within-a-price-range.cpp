@@ -4,6 +4,7 @@ public:
     vector<vector<int>> highestRankedKItems(vector<vector<int>>& grid, vector<int>& p, vector<int>&start,int k) {
         int n=grid.size();
         int m=grid[0].size();
+        
         vector<vector<int>> dis(n,vector<int>(m,INT_MAX));
         dis[start[0]][start[1]]=0;
         queue<array<int,2>> q;
