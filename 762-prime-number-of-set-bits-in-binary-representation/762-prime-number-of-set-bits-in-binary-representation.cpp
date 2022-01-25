@@ -1,13 +1,8 @@
 class Solution {
 public:
-    bool isPrime(int n){
-        if(n==0 || n==1){
-            return false;
-        }
-        for(int i=2;i<=sqrt(n);i++){
-            if(n%i==0) return false;
-        }
-        return true;
+    bool isPrime(int x){
+        return (x == 2 || x == 3 || x == 5 || x == 7 ||
+                x == 11 || x == 13 || x == 17 || x == 19);
     }
     int countPrimeSetBits(int left, int right) {
         int ans=0;
