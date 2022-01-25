@@ -13,25 +13,25 @@ public:
         for(int i=0;i<nums.size();i++){
             res=res^nums[i];
         }
-        int cnt=res&~(res-1);
-    
+        int temp=res;
+        int cnt=0;
+        while(1){
+            cnt++;
+            if((temp>>1)&1) break;
+            temp=temp>>1;
+        }
         vector<int> a;
         vector<int> b;
         
         for(int i=0;i<nums.size();i++){
-            if(nums[i]&cnt) a.push_back(nums[i]);
+            if((nums[i]>>cnt)&1) a.push_back(nums[i]);
             else b.push_back(nums[i]);
         }
-        // for(auto i:a) cout<<i<<" ";
-        // cout<<endl;
-        // for(auto i:b) cout<<i<<" ";
-        
         int num2=res;
         for(int i=0;i<a.size();i++){
             num2^=a[i];
         }
         int num1=num2^res;
-        
         return {min(num1,num2),max(num1,num2)};
     }
 };
