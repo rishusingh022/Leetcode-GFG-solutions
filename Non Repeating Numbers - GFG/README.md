@@ -1,5 +1,5 @@
 # Non Repeating Numbers
-##  Easy 
+## Easy 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given an array A containing 2*N+2 positive&nbsp;numbers, out of which 2*N numbers exist in&nbsp;pairs&nbsp;whereas&nbsp;the other two number&nbsp;occur exactly once and are distinct. Find the other two numbers.</span></p>
 
