@@ -1,5 +1,5 @@
 # Binary Heap Operations
-## Easy 
+##  Easy 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">A <strong>binary heap</strong> is a Binary Tree with the following properties:<br>
 <strong>1)</strong> Its a <em>complete tree</em><strong> </strong>(All levels are completely filled except possibly the last level and the last level has all keys as left as possible). This property of Binary Heap makes them suitable to be stored in an array.</span></p>
