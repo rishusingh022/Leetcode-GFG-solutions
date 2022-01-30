@@ -22,10 +22,7 @@ class Solution{
             return mid;
         }
         else{
-            if(arr[mid]<=arr[mid+1] && arr[mid]<=arr[mid-1]){
-                return mid;
-            }
-            else if(arr[mid]>arr[h]){
+            if(arr[mid]>arr[h]){
                 return pivot(arr,mid+1,h);
             }
             else if(arr[mid]<arr[h]){
