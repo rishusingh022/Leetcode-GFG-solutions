@@ -5,14 +5,6 @@ public:
         if(n==1){
             return 0;
         }
-        if(n==2){
-            if(nums[0]>nums[1]){
-                return 0;
-            }
-            else{
-                return 1;
-            }
-        }
         int start=0;
         int end=nums.size()-1;
         while(start<=end)
