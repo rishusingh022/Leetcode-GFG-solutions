@@ -29,6 +29,24 @@ bool cmp(Job a,Job b){
     }
     return a.profit>b.profit;
 }
+struct DisjointSet{
+    vector<int> parent;
+    DisjointSet(int n){
+        parent=vector<int>(n+1);
+        for(int i=0;i<=n;i++){
+            parent[i]=i;
+        }
+    }
+    int find(int s){
+        if(s==parent[s]){
+            return s;
+        }
+        return parent[s]=find(parent[s]);
+    }
+    void merge(int u,int v){
+        parent[v]=u;
+    }
+};
 class Solution 
 {
     public:
@@ -37,28 +55,23 @@ class Solution
     vector<int> JobScheduling(Job arr[], int n) 
     { 
         // your code here
-        int cnt=0;
-        int max_profit=0;
+        int cnt=0,maxProfit=0;
         sort(arr,arr+n,cmp);
-        int slot=INT_MIN;
-        
+        int maxDeadline=INT_MIN;
         for(int i=0;i<n;i++){
-            slot=max(slot,arr[i].dead);
+            maxDeadline=max(maxDeadline,arr[i].dead);
         }
-        vector<bool> vis(slot,false);
+        DisjointSet ds(maxDeadline);
         
         for(int i=0;i<n;i++){
-            for(int j=arr[i].dead-1;j>=0;j--){
-                if(vis[j]==false){
-                    cnt++;
-                    max_profit+=arr[i].profit;
-                    vis[j]=true;
-                    break;
-                }
+            int availableSlot=ds.find(arr[i].dead);
+            if(availableSlot>0){
+                ds.merge(ds.find(availableSlot-1),availableSlot);
+                cnt++;
+                maxProfit+=arr[i].profit;
             }
         }
-        
-        return {cnt,max_profit};
+        return {cnt,maxProfit};
     } 
 };
 
