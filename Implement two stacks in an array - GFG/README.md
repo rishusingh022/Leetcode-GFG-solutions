@@ -1,5 +1,5 @@
 # Implement two stacks in an array
-## Easy 
+##  Easy 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Your task is to implement&nbsp;&nbsp;2 stacks in one array efficiently.</span></p>
 
