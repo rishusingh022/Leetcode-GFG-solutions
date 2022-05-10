@@ -14,22 +14,16 @@ class Solution
     int celebrity(vector<vector<int> >& M, int n) 
     {
         // code here 
-        vector<int> in(n,0);
-        vector<int>out(n,0);
-        for(int i=0;i<n;i++){
-            for(int j=0;j<n;j++){
-                if(M[i][j]==1){
-                    in[j]++;
-                    out[i]++;
-                }
+        int c=0;
+        for(int i=1;i<n;i++){
+            if(M[c][i]==1){
+                c=i;
             }
         }
         for(int i=0;i<n;i++){
-            if(in[i]==n-1 and out[i]==0){
-                return i;
-            }
+            if(i!=c and (M[c][i]==1 or M[i][c]==0)) return -1;
         }
-        return -1;
+        return c;
     }
 };
 
