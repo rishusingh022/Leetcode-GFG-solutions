@@ -17,9 +17,9 @@ class Solution{
     	
     	for(int i=0;i<n;i++){
     	    yo[arr[i]]++;
-    	    if(dep[i]<yo.size()-1){
+    	    //if(dep[i]<yo.size()-1){
     	        yo[dep[i]+1]--;
-    	    }
+    	    //}
     	}
     	int res=yo[0];
     	for(int i=1;i<yo.size();i++){
