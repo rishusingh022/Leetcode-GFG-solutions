@@ -12,10 +12,21 @@ public:
        }
        int left=0,right=0;
        if(i<oG.size()-1){
-           left=solve(oG,i+1,j,dp);
+           if(dp[i+1][j]!=-1){
+               left=dp[i+1][j];
+           }
+           else{
+               left=solve(oG,i+1,j,dp);
+           }
+           
        }
        if(j<oG[0].size()-1){
-           right=solve(oG,i,j+1,dp);
+           if(dp[i][j+1]!=-1){
+               right=dp[i][j+1];
+           }
+           else{
+               right=solve(oG,i,j+1,dp);
+           }
        }
        return dp[i][j]=left+right;
     }
