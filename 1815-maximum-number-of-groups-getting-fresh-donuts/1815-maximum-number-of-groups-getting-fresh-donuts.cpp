@@ -21,7 +21,7 @@ int maxHappyGroups(int batchSize,vector<int>&groups){
     int n=groups.size();
     int yo=0;
     map<vector<int>,int> m; 
-    int bs;
+    int bs=batchSize;
     vector<int> cnt(batchSize,0);
     for(auto i:groups){
         if(i%batchSize==0){
